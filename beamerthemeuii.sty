@@ -1,4 +1,4 @@
-% Template for NYCU Speed presentations with LaTeX beamer
+% Unofficial template for Universitas Islam Indonesia presentations with LaTeX beamer
 % This template is a derivative of the UIC by Usama Muneeb and SINEF templates by Federico Zenith
 % <federico.zenith@sintef.no>, which in turn is
 % derived (through several iterations) from Håvard Berland's
@@ -16,8 +16,8 @@
 %
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-\ProvidesPackage{beamerthemenycu}
+\usepackage{setspace}
+\ProvidesPackage{beamerthemeuii}
 
 \RequirePackage{etoolbox}
 \RequirePackage{tikz}
@@ -26,10 +26,10 @@
 \RequirePackage{geometry}
 \geometry{paperwidth=16cm,paperheight=9cm}
 
-\RequirePackage{nycufont}
+\RequirePackage{uiifont}
 \renewcommand{\familydefault}{\sfdefault}
 
-\RequirePackage{graphicx,nycucolor}
+\RequirePackage{graphicx,uiicolor}
 
 % No navigation symbols
 \setbeamertemplate{navigation symbols}{}
@@ -37,7 +37,7 @@
 
 \newcommand{\@footlinepayoff}{\usebeamertemplate{page number in head/foot}}
 \setbeamertemplate{footline}{%
-  \begin{beamercolorbox}[wd=\textwidth,ht=5mm,dp=3mm,rightskip=1cm]{footline}
+  \begin{beamercolorbox}[wd=\textwidth,ht=3mm,dp=2mm,rightskip=1cm]{footline}
   \usebeamerfont{footline}\hfill\@footlinepayoff
   \end{beamercolorbox}
 }
@@ -47,8 +47,8 @@
   \ifstrempty{#1}{%
     \renewcommand{\@footlinepayoff}{}
     \setbeamercolor{footline}{bg=}
-    \setbeamercolor{block title}{fg=white,bg=nycublue}
-    \setbeamercolor{block body}{fg=white,bg=nycublue}
+    \setbeamercolor{block title}{fg=white,bg=uiiblue}
+    \setbeamercolor{block body}{fg=white,bg=uiiblue}
   }{
     \renewcommand{\@footlinepayoff}{\usebeamertemplate{page number in head/foot}}
     \setbeamercolor{footline}{fg=white,bg=#1}
@@ -58,10 +58,12 @@
 }
 \footlinecolor{} % Default: no footline
 
-\pgfdeclareimage[width=0.1\paperwidth]{bluelogo}{images/english_chinese_blue_topdown.png}
-\pgfdeclareimage[width=0.1\paperwidth]{whitelogo}{images/english_chinese_white_flat.png}
+\pgfdeclareimage[width=0.07\paperwidth]{bluelogo}{images/UII_Biru.png}
+\pgfdeclareimage[width=0.1\paperwidth]{whitelogo}{images/Logo_Resmi_UII_Putih.png}
 \pgfdeclareimage[width=0.1\paperwidth]{nologo}{images/placeholder.png}
-\newcommand{\@NYCUlogo}{bluelogo}
+\pgfdeclareimage[width=0.1\paperwidth]{speedlab}{images/footer_logo}
+\newcommand{\@uiilogo}{bluelogo}
+% \newcommand{\@speedlab}{speedlab}
 
 % Set colours
 % NOTE! Beamer colors should be set in the preamble. It often works fine in the 
@@ -69,44 +71,45 @@
 %       \themecolor should only be called from the preamble.
 \newcommand{\themecolor}[1]{
 	\ifstrequal{#1}{dark}{%
-		\setbeamercolor{normal text}{fg=white,bg=nycublue}
+		\setbeamercolor{normal text}{fg=white,bg=uiiblue}
 		\setbeamercolor{structure}{fg=white}
-		\renewcommand{\@NYCUlogo}{whitelogo}
-		\setbeamercolor{block title}{fg=nycublue,bg=steelgray}
-		\setbeamercolor{block body}{fg=nycublue,bg=steelgray}
+		\renewcommand{\@uiilogo}{whitelogo}
+		\setbeamercolor{block title}{fg=uiiblue,bg=steelgray}
+		\setbeamercolor{block body}{fg=uiiblue,bg=steelgray}
 		\usebeamercolor[fg]{normal text}
 	}{}
 	\ifstrequal{#1}{light}{%
-		\setbeamercolor{normal text}{fg=nycublue,bg=white}
-		\setbeamercolor{structure}{fg=nycublue}
-		\renewcommand{\@NYCUlogo}{bluelogo}
-		\setbeamercolor{block title}{fg=white,bg=nycublue}
-		\setbeamercolor{block body}{fg=white,bg=nycublue}
+		\setbeamercolor{normal text}{fg=steelgray,bg=white}
+		\setbeamercolor{structure}{fg=steelgray}
+		\renewcommand{\@uiilogo}{bluelogo}
+		\setbeamercolor{block title}{fg=white,bg=uiiblue}
+		\setbeamercolor{block body}{fg=white,bg=uiiblue}
 		\usebeamercolor[fg]{normal text}
 	}{}
 	\ifstrequal{#1}{lightnologo}{%
-		\setbeamercolor{normal text}{fg=nycublue,bg=white}
-		\setbeamercolor{structure}{fg=nycublue}
-		\renewcommand{\@NYCUlogo}{nologo}
-		\setbeamercolor{block title}{fg=white,bg=nycublue}
-		\setbeamercolor{block body}{fg=white,bg=nycublue}
+		\setbeamercolor{normal text}{fg=uiiblue,bg=white}
+		\setbeamercolor{structure}{fg=uiiblue}
+		\renewcommand{\@uiilogo}{nologo}
+		\setbeamercolor{block title}{fg=white,bg=uiiblue}
+		\setbeamercolor{block body}{fg=white,bg=uiiblue}
 		\usebeamercolor[fg]{normal text}
 	}{}
 }
 \themecolor{light}
 
-\setbeamercolor{title}{fg=nycublue,bg=white}
-\setbeamercolor{alerted text}{fg=nycured}
+\setbeamerfont{title}{size=\LARGE,  series=\bfseries}
+\setbeamercolor{title}{fg=steelgray,bg=white}
+\setbeamercolor{alerted text}{fg=uiired}
 \setbeamercolor{author}{fg=black}
 \setbeamercolor{date}{fg=black}
 
-\setbeamerfont{author}{size=\scriptsize}
+\setbeamerfont{author}{size=\small}
 \setbeamerfont{date}{size=\tiny}
 \setbeamerfont{title}{series=\bfseries}
 \setbeamerfont{subtitle}{series=\mdseries,size=\footnotesize}
 \setbeamerfont{frametitle}{series=\bfseries}
 \setbeamerfont{framesubtitle}{series=\mdseries}
-\setbeamerfont{footline}{size=\scriptsize}
+\setbeamerfont{footline}{size=\tiny}
 \setbeamerfont{block title}{series=\centering\bfseries}
 
 % Code to get prettier boxes
@@ -128,7 +131,16 @@
 }
 
 % Put the logo in each slide's top left area
-\setbeamertemplate{headline}{\vspace{0.03\textwidth}\hspace{0.06\textwidth}\pgfuseimage{\@NYCUlogo}}
+\setbeamertemplate{headline}{\vspace{0.03\textwidth}\hspace{0.06\textwidth}\pgfuseimage{\@uiilogo}}
+
+% \setbeamertemplate{headline}{
+%   \vspace{0.03\textwidth}
+%   \begin{beamercolorbox}[wd=\paperwidth,ht=1cm,dp=0.2cm]{headline}
+%     \hspace{0.06\paperwidth}\pgfuseimage{\@uiilogo}
+%     \hfill
+%     \pgfuseimage{\@speedlab}\hspace{0.06\paperwidth}
+%   \end{beamercolorbox}
+% }
 
 % Define frame title and subtitle layout
 \setbeamertemplate{frametitle}{%
@@ -146,28 +158,53 @@
 }
 
 % Define the title page
+\setbeamercolor{title}{bg=}
 \setbeamertemplate{title page}{%
-  \vskip0pt plus 1filll%
+  
+  \vskip-50pt%
   \hspace{-12mm}% Pull back the box in an inelegant way - but it works!
   \begin{beamercolorbox}[wd=\titleboxwidth,sep=10pt,leftskip=8mm]{title}%
-    {\usebeamerfont{title}\inserttitle}
-  
+    {\usebeamerfont{title}\setstretch{1.4pt}\inserttitle}
+
+    \vspace{100pt}
     {\usebeamerfont{subtitle}\insertsubtitle}
   
-    {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}
+    % {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}
   
+    
+
+    % Add a horizontal rule (separator) here
+    \vspace{15pt} %for the Student and Advisor
+    % \vspace{80pt} %for the normal author
+    % {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}
+
+     % Custom author format for Instructor or Presenter
+     % Uncomment this block if you present this and are not delivering a course
+    % {\usebeamerfont{author}\usebeamercolor[fg]{author}%
+    %   \vspace{20pt}
+    %   \textbf{Presenter:} \par
+    %   <Your Name> \par
+    % }
+    % Uncomment this block if you are a instructor of a course
+    {\usebeamerfont{author}\usebeamercolor[fg]{author}%
+      \textbf{Course Name:} \par
+      <Course Code>-<Course Name> \par
+      \vspace{5pt} % Space between student and advisor
+      \textbf{Instructor:} \par
+      Prof. <John Doe> \par
+    }
     {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}
   \end{beamercolorbox}
 }
 
 \newcommand{\TikzSplitSlide}[1]{%
-  \rule{0.4\paperwidth}{0pt}%
+  \rule{0.55\paperwidth}{0pt}%
   \begin{tikzpicture}
     \clip (-0.1\paperwidth,-0.5\paperheight) -- 
           ( 0.5\paperwidth,-0.5\paperheight) -- 
           ( 0.5\paperwidth, 0.5\paperheight) -- 
           ( 0.1\paperwidth, 0.5\paperheight) -- cycle; 
-    \node at (0.2\paperwidth,0) {%
+    \node at (0.15\paperwidth,0) {%
       \includegraphics[height=\paperheight]{#1}%
     };
   \end{tikzpicture}
@@ -205,8 +242,8 @@
   \themecolor{blue}
   \setbeamertemplate{footline}{}
   \ifstrequal{#2}{sinteflightgreen}{ % Use blue text on light green, else white
-    \setbeamercolor{frametitle}{fg=nycublue}
-    \setbeamercolor{normal text}{fg=nycublue,bg=#2}
+    \setbeamercolor{frametitle}{fg=uiiblue}
+    \setbeamercolor{normal text}{fg=uiiblue,bg=#2}
   }{
     \setbeamercolor{frametitle}{fg=white}
     \setbeamercolor{normal text}{fg=white,bg=#2}
@@ -257,16 +294,18 @@
   \endgroup
 }
 
-\newcommand{\backmatter}{
-\begingroup
-  \setbeamertemplate{footline}{}
-  \themecolor{dark}
-  \begin{frame}[c]
-    \centering
-    \begin{minipage}{0.4\textwidth}
-      \usebeamercolor[fg]{normal text}
-      \centering\huge{Thank you!}
-    \end{minipage}
-  \end{frame}
-\endgroup
-}
+\setbeamercolor{mywhitebox}{bg=white,fg=black}
+
+% \newcommand{\backmatter}{
+% \begingroup
+%   \setbeamertemplate{footline}{}
+%   \themecolor{dark}
+%   \begin{frame}[c]
+%     \centering
+%     \begin{minipage}{0.4\textwidth}
+%       \usebeamercolor[fg]{normal text}
+%       \centering\huge{Thank you!}
+%     \end{minipage}
+%   \end{frame}
+% \endgroup
+% }

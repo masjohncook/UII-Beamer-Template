@@ -1,22 +1,33 @@
 \documentclass{beamer}
-\usetheme{nycu}
-\usepackage{amsfonts,amsmath,oldgerm,algorithmic,algorithm}
+\usetheme{uii}
+\usepackage{amsfonts,amsmath,oldgerm,algorithm,algorithmic,algpseudocode}
 \usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+\usepackage{cite}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
 
 \newcommand{\hrefcol}[2]{\textcolor{uihteal}{\href{#1}{#2}}}
 \newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
 
+\usepackage{setspace}
+
 % Please see Section 18.1 of Beamer User Guide for all the options \usefonttheme provides
 \usefonttheme[onlymath]{serif}
 % \usefonttheme{serif} % use this if you would like Serif font throughout (and not just for math)
+% \usepackage{natbib}
+% \usepackage{bibentry}
+
+ \algdef{SE}[DOWHILE]{Do}{doWhile}{\algorithmicdo}[1]{\algorithmicwhile\ #1}%
+
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}
+
+\newcommand*{\MaxFolderNum}{100}
+\newcommand*{\MaxNumOfSlides}{1000}% Adjust these two settings for your needs.
+
+\title{<Your title should be here>}
 
 
-\newcommand*{\MaxNumOfSlides}{100}% Adjust these two settings for your needs.
-
-\title{Write the title here}
-
-
-\titlebackground*{images/nycu_lockup.png}
+\titlebackground*{images/uii_lockup.png}
 
 % NOTE 1: The asterisk splits the background image. This option is good
 % for logo-based backgrounds. If you use an image based background
@@ -29,16 +40,24 @@
 % To do that, simply comment out this line
 \themecolor{lightnologo}
 
-\subtitle{Add subtitle here}
+\setstretch{1.15} % Slightly increased line spacing
+
+% \subtitle{Add subtitle here}
 % This can be adjusted accordingly for longer titles
-\newcommand{\titleboxwidth}{0.45\textwidth}
+\newcommand{\titleboxwidth}{0.80\textwidth}
 
 \author{\href{mailto:author@author.com}{author}}
 % \date{\today}
 
-
-
-
+% Nested itemize
+\setbeamerfont{itemize/enumerate body}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subbody}{size=\small}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\footnotesize}
+% \setlength{\columnsep}{3pt} % default is around 10pt–20pt
+% Adjust spacing between bullet levels
+\setlength{\leftmargini}{2em}   % Top level
+\setlength{\leftmarginii}{2em}  % Second level
+\setlength{\leftmarginiii}{1.8em}  % Third level
 
 
 \begin{document}
@@ -46,16 +65,33 @@
 \themecolor{light} % reverts to a logo based theme (if you disabled it for title page)
 
 % default is no footline, but page numbers are incredibly useful for the audience to ask questions later
-\footlinecolor{nycublue}
+\footlinecolor{uiiblue}
+
+
 
 % main_matter
-\foreach \x in {1,...,\MaxNumOfSlides}{% Loop over slide numbers from 1 to #1
-    \IfFileExists{slides/main_matter/slides\x}{%
-        \input{slides/main_matter/slides\x}%
+% \foreach \folder in {0,...,\MaxNumOfDir}{
+    \foreach \x in {1,...,\MaxNumOfSlides}{% Loop over slide numbers from 1 to #1
+        \IfFileExists{slides/main_matter/slides\x}{%
+            \input{slides/main_matter/slides\x}%
+        }{%
+            \message{File slides\x not found. Skipping...}%
+        }%
+    }
+% }
+% Include Back Matter Slides
+\foreach \x in {1,...,\MaxNumOfSlides}{%
+    \IfFileExists{slides/back_matter/slides\x}{%
+        \input{slides/back_matter/slides\x}%
     }{%
         \message{File slides\x not found. Skipping...}%
     }%
 }
 
-\backmatter
+% Back Matter: References Slide with automatic frame breaks
+% \begin{frame}[allowframebreaks]{References}
+%     \printbibliography
+%     % \bibliography{ref/ref}
+% \end{frame}
+
 \end{document}
