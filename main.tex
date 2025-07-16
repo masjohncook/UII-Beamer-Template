@@ -1,0 +1,61 @@
+\documentclass{beamer}
+\usetheme{nycu}
+\usepackage{amsfonts,amsmath,oldgerm,algorithmic,algorithm}
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+
+\newcommand{\hrefcol}[2]{\textcolor{uihteal}{\href{#1}{#2}}}
+\newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
+
+% Please see Section 18.1 of Beamer User Guide for all the options \usefonttheme provides
+\usefonttheme[onlymath]{serif}
+% \usefonttheme{serif} % use this if you would like Serif font throughout (and not just for math)
+
+
+\newcommand*{\MaxNumOfSlides}{100}% Adjust these two settings for your needs.
+
+\title{Write the title here}
+
+
+\titlebackground*{images/nycu_lockup.png}
+
+% NOTE 1: The asterisk splits the background image. This option is good
+% for logo-based backgrounds. If you use an image based background
+% it's recommended to not split it:
+
+% \titlebackground{images/uic_seo.jpg}
+
+% NOTE 2: If you use a title background that does not have a logo, you might
+% want to enable logo in the top left.
+% To do that, simply comment out this line
+\themecolor{lightnologo}
+
+\subtitle{Add subtitle here}
+% This can be adjusted accordingly for longer titles
+\newcommand{\titleboxwidth}{0.45\textwidth}
+
+\author{\href{mailto:author@author.com}{author}}
+% \date{\today}
+
+
+
+
+
+
+\begin{document}
+\maketitle
+\themecolor{light} % reverts to a logo based theme (if you disabled it for title page)
+
+% default is no footline, but page numbers are incredibly useful for the audience to ask questions later
+\footlinecolor{nycublue}
+
+% main_matter
+\foreach \x in {1,...,\MaxNumOfSlides}{% Loop over slide numbers from 1 to #1
+    \IfFileExists{slides/main_matter/slides\x}{%
+        \input{slides/main_matter/slides\x}%
+    }{%
+        \message{File slides\x not found. Skipping...}%
+    }%
+}
+
+\backmatter
+\end{document}
