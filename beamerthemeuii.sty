@@ -61,7 +61,7 @@
 \pgfdeclareimage[width=0.07\paperwidth]{bluelogo}{images/UII_Biru.png}
 \pgfdeclareimage[width=0.1\paperwidth]{whitelogo}{images/Logo_Resmi_UII_Putih.png}
 \pgfdeclareimage[width=0.1\paperwidth]{nologo}{images/placeholder.png}
-\pgfdeclareimage[width=0.1\paperwidth]{speedlab}{images/footer_logo}
+% \pgfdeclareimage[width=0.1\paperwidth]{speedlab}{images/footer_logo}
 \newcommand{\@uiilogo}{bluelogo}
 % \newcommand{\@speedlab}{speedlab}
 
@@ -164,7 +164,7 @@
   \vskip-50pt%
   \hspace{-12mm}% Pull back the box in an inelegant way - but it works!
   \begin{beamercolorbox}[wd=\titleboxwidth,sep=10pt,leftskip=8mm]{title}%
-    {\usebeamerfont{title}\setstretch{1.4pt}\inserttitle}
+    {\usebeamerfont{title}\setstretch{1.4}\inserttitle}
 
     \vspace{100pt}
     {\usebeamerfont{subtitle}\insertsubtitle}
@@ -239,7 +239,7 @@
 
 \newenvironment{chapter}[3][]{% Args: image (optional), color, frame title
   \begingroup
-  \themecolor{blue}
+  \themecolor{dark}
   \setbeamertemplate{footline}{}
   \ifstrequal{#2}{sinteflightgreen}{ % Use blue text on light green, else white
     \setbeamercolor{frametitle}{fg=uiiblue}
@@ -249,16 +249,13 @@
     \setbeamercolor{normal text}{fg=white,bg=#2}
   }
   \ifstrempty{#1}{}{\setbeamertemplate{background}{\TikzSplitSlide{#1}}}
-  \setbeamertemplate{frametitle}{%
-    \vspace*{8ex}
-    \begin{beamercolorbox}[wd=0.45\textwidth]{frametitle}
-      \usebeamerfont{frametitle}\insertframetitle\\
-      \usebeamerfont{framesubtitle}\insertframesubtitle
-    \end{beamercolorbox}
-  }
-  \begin{frame}{#3}
+  \setbeamertemplate{frametitle}{}%
+  \begin{frame}[t]{#3}%
+  \vspace*{6ex}%
   \hspace*{0.05\textwidth}%
   \minipage{0.35\textwidth}%
+  {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle}%
+  \\[0pt]%
   \usebeamercolor[fg]{normal text}%
 }{%
   \endminipage
