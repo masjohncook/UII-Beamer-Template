@@ -1,0 +1,31 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.vrb
+*.xdv
+
+# Output PDF (remove this line if you want to track the compiled PDF)
+main.pdf
+
+# macOS metadata files
+._*
+.DS_Store
+
+# Editor / IDE
+*.swp
+*.swo
+.idea/
+*.sublime-project
+*.sublime-workspace
