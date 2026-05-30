@@ -1,7 +1,11 @@
 \begin{frame}[plain]
-    % \themecolor{dark}
-    \setbeamercolor{background canvas}{bg=nycublue}
+    \setbeamercolor{background canvas}{bg=uiiblue}
     \setbeamercolor{normal text}{fg=white}
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=north west, xshift=0.06\textwidth, yshift=-0.03\textwidth] at (current page.north west) {%
+            \pgfuseimage{whitelogo}%
+        };
+    \end{tikzpicture}
     \vfill
     \centering
     {\huge \textbf{Thank You!}}\\[1cm]

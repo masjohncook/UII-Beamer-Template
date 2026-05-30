@@ -30,14 +30,14 @@ Adding images works like in normal \LaTeX:
 \usepackage{graphicx}
 % ...
 \includegraphics[width=\textwidth]
-{images/uic_quad.pdf}
+{images/your_image.png}
 \end{verbatim}
 \end{block}
 This slide layout was achieved using the \verb|columns| feature. The number and widths of the columns is totally user preference. Another columns example follows on the next slide.
 \end{column}
 \begin{column}{0.3\textwidth}
 \includegraphics[width=\textwidth]
-{images/uic_quad.pdf}
+{images/placeholder.png}
 \end{column}
 \end{columns}
 \end{frame}
@@ -46,14 +46,14 @@ This slide layout was achieved using the \verb|columns| feature. The number and 
 \begin{frame}{Another images/columns example}
 \begin{columns}
 \begin{column}{0.35\textwidth}
-\includegraphics[width=\textwidth]{plots/min_fuel.png}
+\includegraphics[width=\textwidth]{slides/main_matter/assets/min_fuel.png}
 \captionof{figure}{Minimum fuel trajectory}
 \end{column}
 \begin{column}{0.3\textwidth}
 \textbf{Left:} Solving for optimal fuel consumption \textbf{Right:} Solving for optimal time taken
 \end{column}
 \begin{column}{0.35\textwidth}
-\includegraphics[width=\textwidth]{plots/min_time.png}
+\includegraphics[width=\textwidth]{slides/main_matter/assets/min_time.png}
 \captionof{figure}{Minimum time trajectory}
 \end{column}
 \end{columns}
@@ -95,7 +95,7 @@ Beamer also uses blocks by default to wrap theorems.
 \end{frame}
 
 
-\begin{sidepic}{images/uic_quad.pdf}{Side-Picture Slides}
+\begin{sidepic}{images/placeholder.png}{Side-Picture Slides}
 Just another another layout you may want to use.
 \begin{itemize}
 \item These type of slides are created using \texttt{$\backslash$begin\{sidepic\}\{<image>\}\{<title>\}}
@@ -144,9 +144,9 @@ Just another another layout you may want to use.
 \end{frame}
 
 
-\footlinecolor{nycublue}
+\footlinecolor{uiiblue}
 
-\begin{chapter}[images/uic_seo.jpg]{nycublue}{Personalization}
+\begin{chapter}[images/Beranda-2-1.png]{uiiblue}{Personalization}
 \textit{Themes, fonts and colors}
 \end{chapter}
 
@@ -173,7 +173,7 @@ Three fundamental features greatly affect the look and feel of your slides. Two 
 \end{itemize}
 \item The third, the footer color can be set using \verb|\footlinecolor| command.
 \begin{itemize}
-    \item We are currently using \testcolor{nycublue} color for our footer.
+    \item We are currently using \testcolor{uiiblue} color for our footer.
     \item The default is no footline, but I believe page numbers are incredibly helpful for your audience to ask questions later.
 \end{itemize}
 \end{itemize}
@@ -181,7 +181,7 @@ Three fundamental features greatly affect the look and feel of your slides. Two 
 
 
 \themecolor{dark}
-\footlinecolor{uicred}
+\footlinecolor[steelgray]{white}
 \begin{frame}[fragile]{Let's talk themes}
 \begin{itemize}
 \item I just called \verb|\themecolor{dark}| before \verb|\begin{frame}| for this slide.
@@ -198,7 +198,7 @@ Three fundamental features greatly affect the look and feel of your slides. Two 
 
 
 \themecolor{light}
-\footlinecolor{nycublue}
+\footlinecolor{uiiblue}
 
 
 \begin{frame}[fragile]{Fonts}
@@ -215,7 +215,7 @@ Fonts are categorized as \textrm{Serif} and \textsf{Sans-Serif} (see \hrefcol{ht
         \item You can still typeset in Serif font in Sans-Serif mode (and vice versa) using \verb|\textrm| and \verb|\textsf| commands.
     \end{itemize}
 \end{itemize}
-For more options with fonts, you need to modify the self explanatory \verb|uicfont.sty| file. Next few slides will be helpful in this regard.
+For more options with fonts, you need to modify the self explanatory \verb|uiifont.sty| file. Next few slides will be helpful in this regard.
 \end{frame}
 
 
@@ -260,10 +260,10 @@ If you want to use fonts beyond those in the \hrefcol{https://tug.org/FontCatalo
 \item The fonts included in the \verb|fonts| folder are \emph{TrueType flavor OpenType} fonts.
 \item You can still use pdfLaTeX, except that the included fonts will not be applied.
 \end{itemize}
-UIC signature font is Theinhardt, also available as \emph{OpenType}.
+UII's primary font is Open Sans, as specified in the UII brand guidelines.
 \begin{itemize}
-\item Due to licensing issues, I cannot distribute Theinhardt with this template.
-\item A licensed copy of Theinhardt can be obtained by UIC students and faculty \hrefcol{https://marketing.uic.edu/marketing-toolbox/uic-fonts/}{here}.
+\item Open Sans is included in the \verb|fonts| folder and loaded automatically.
+\item For additional font options, refer to the \hrefcol{https://tug.org/FontCatalogue/}{LaTeX Font Catalogue}.
 \end{itemize}
 \end{frame}
 
@@ -271,11 +271,11 @@ UIC signature font is Theinhardt, also available as \emph{OpenType}.
 \begin{frame}[fragile]{Text color}
 \begin{itemize}
 \item Font color can be set with the \verb|\textcolor{<color name>}{text}| command.
-\item The colors are defined in the \texttt{uiccolor} package, in accordance with the \hrefcol{https://marketing.uic.edu/marketing-toolbox/university-style-guide/visual-elements/}{UIC Visual Elements guide}:
+\item The colors are defined in the \texttt{uiicolor} package, in accordance with the UII brand guidelines:
   \begin{itemize}
-  \item UIC's primary colors are Navy Pier Blue (\testcolor{uicblue}) and Fire Engine Red (\testcolor{uicred}).
-  \item UIC's secondary colors are Chicago Blue (\testcolor{chicagoblue}), UI Health Teal (\testcolor{uihteal}) and Champions Gold (\testcolor{championsgold}).
-  \item UIC's neutral colors are Expo White (\testcolor{expowhite}) and Steel Gray (\testcolor{steelgray} or \testcolor{steelgrey}).
+  \item UII's primary colors are UII Blue (\testcolor{uiiblue}) and UII Red (\testcolor{uiired}).
+  \item UII's secondary colors are Chicago Blue (\testcolor{chicagoblue}), UI Health Teal (\testcolor{uihteal}) and Champions Gold (\testcolor{championsgold}).
+  \item UII's neutral colors are Expo White (\testcolor{expowhite}) and Steel Gray (\testcolor{steelgray} or \testcolor{steelgrey}).
   \end{itemize}
 \item A \emph{simpler alternative} to font colors is often just \verb|\emph{}|.
 \end{itemize}
@@ -292,56 +292,52 @@ UIC signature font is Theinhardt, also available as \emph{OpenType}.
   \end{itemize}
 \item Multiple background images have been provided in this template which may be used for chapter slides:
   \begin{itemize}
-  \item Some campus photos that I have taken over the years and;
-  \item some departmental logos.
+  \item Some UII campus photos and;
+  \item the UII lockup logo.
   \item Let's look at a few examples!
   \end{itemize}
 \end{itemize}
 \end{frame}
 
 
-\begin{chapter}[images/uic_seo.jpg]{nycublue}{Title goes here}
+\begin{chapter}[images/Beranda-2-1.png]{uiiblue}{Title goes here}
 \textit{Subtitle goes here}
 \end{chapter}
 
 \themecolor{lightnologo}
-% these backgrounds already have the UIC circular logo, so we temporarily change the theme to lightnologo
-\begin{chapter}[images/dept_ece.png]{nycublue}{Title goes here}
+% These backgrounds already have the UII logo, so we temporarily change the theme to lightnologo
+\begin{chapter}[images/uii_lockup.png]{uiiblue}{Title goes here}
 \textit{Subtitle goes here}
 \end{chapter}
 
-\begin{chapter}[images/dept_cs_white.png]{nycublue}{Title goes here}
+\begin{chapter}[images/placeholder.png]{uiiblue}{Title goes here}
 \textit{Subtitle goes here}
 \end{chapter}
 
-\begin{chapter}[images/dept_mscs.png]{steelgray}{Title goes here}
+\begin{chapter}[images/placeholder.png]{steelgray}{Title goes here}
 \textit{Subtitle goes here}
 \end{chapter}
 \themecolor{light}
 
-\begin{frame}[fragile]{Other departments}
+\begin{frame}[fragile]{Other backgrounds}
 \begin{itemize}
-\item You can use the generic \verb|uic_lockup.png| background, or
-\item Download your logo from \hrefcol{https://marketing.uic.edu/marketing-toolbox/university-style-guide/university-marks-logos/}{here}.
+\item You can use the generic \verb|uii_lockup.png| background, or
+\item Replace the images in the \verb|images| folder with your own.
     \begin{itemize}
-    \item What you need is ``departmental lockup in SVG format and RGB/inverted RGB color".
+    \item Supported formats: \verb|.png|, \verb|.jpg|, \verb|.pdf|.
     \end{itemize}
-\item Overlay it on a static background (LaTeX cannot natively handle SVG images)
-    \begin{itemize}
-    \item Use the \verb|overlay_svg.py| Python script provided in the GitHub repository of this template (link on next slide)
-    \end{itemize}
+\item Download official UII visual assets from the UII brand guidelines portal.
 \end{itemize}
 \end{frame}
 
 
 \begin{frame}[fragile]{Good luck with your presentation!}
 \begin{itemize}
-\item This template is hosted on GitHub
+\item This template is based on the UIC Beamer Template by Usama Muneeb
     \begin{itemize}
     \item  \verb|https://github.com/usamamuneeb/uic-beamer-template|
     \end{itemize}
-\item  I would appreciate contributions of all sorts (pull requests, identifying issues, etc).
-\item  If you have any suggestions,
-\hrefcol{mailto:umunee2@uic.edu}{send them to me!}
+\item Adapted for Universitas Islam Indonesia (UII).
+\item For questions or suggestions, contact your template maintainer.
 \end{itemize}
 \end{frame}
